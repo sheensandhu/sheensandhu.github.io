@@ -1,4 +1,4 @@
-## Hi there 👋
+## DEVSOC Training Program Application Website
 
 <!--
 **sheensandhu/sheensandhu** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <style>
+        @font-face {
+            font-family: 'Minecraft';
+            src: url('MinecraftRegular-Bmg3.otf') format('opentype');
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: url('background.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: 'Minecraft', Arial, sans-serif;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-top: 5px;
+        }
+
+        .minecraft-button {
+            width: 400px;
+            height: 70px;
+            line-height: 70px;
+            font-size: 30px;
+            text-align: center;
+            text-decoration: none;
+            background-color: #bcbcbc;
+            color: #fbfbfb;
+            border: 2px solid #000000;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Minecraft', Arial, sans-serif;
+        }
+
+        .minecraft-button:hover {
+            background-color: #4CAF50;
+            color: #FFFFFF;
+        }
+
+        .minecraft-button:active {
+            transform: scale(0.98);
+        }
+
+        .title {
+            color: white;
+            font-size: 48px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 40px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <a href="game.html" class="minecraft-button" id="playButton">Play</a>
+        <button class="minecraft-button" id="settingsButton">Settings</button>
+        <button class="minecraft-button" id="marketplaceButton">Marketplace</button>
+    </div>
+</body>
+</html>

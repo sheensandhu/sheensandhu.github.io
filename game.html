@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY WORLD</title>
+    <style>
+        @font-face {
+            font-family: 'Minecraft';
+            src: url('MinecraftRegular-Bmg3.otf') format('opentype');
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            font-family: 'Minecraft', Arial, sans-serif;
+            overflow: hidden;
+            background-image: url('gameback.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .map-overlay {
+            position: fixed;
+            bottom: -100px;
+            left: 50%;
+            transform: translateX(-50%) perspective(1400px) rotateX(45deg);
+            
+            width: 700px;
+            height: 800px;
+            
+            background-image: url('map.png');
+            background-size: cover;
+            background-position: center;
+            
+            border: 4px solid #baa669;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            
+            z-index: 0;
+        }
+
+        .inventory-bar {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            padding: 0;
+            z-index: 2;
+        }
+
+        .inventory-slot {
+            width: 64px;
+            height: 64px;
+            background-color: #8B8B8B;
+            border: 2px solid #373737;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .inventory-slot.selected {
+            border: 2px solid white;
+            background-color: #A0A0A0;
+        }
+
+        .inventory-item {
+            width: 48px;
+            height: 48px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            position: relative;
+        }
+
+        .tooltip {
+            display: none;
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+            margin-bottom: 8px;
+            font-size: 14px;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .inventory-slot:hover .tooltip {
+            display: block;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            font-family: 'Minecraft', Arial, sans-serif;
+            background-color: #CECECE;
+            border: 2px solid #000000;
+            color: #000000;
+            cursor: pointer;
+            text-decoration: none;
+            z-index: 2;
+        }
+
+        .back-button:hover {
+            background-color: #4CAF50;
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-content">
+        <a href="index.html" class="back-button">Back</a>
+        <div class="map-overlay"></div>
+
+    </div>
+    <div class="inventory-bar">
+        <div class="inventory-slot selected">
+            <div class="inventory-item" style="background-image: url('1.png')"></div>
+            <div class="tooltip">I love collecting Sonny Angels! I've probably got about 45 in my collection.</div>
+        </div>
+        <div class="inventory-slot">
+            <div class="inventory-item" style="background-image: url('2.png')"></div>
+            <div class="tooltip">My favourite current drink is the Edition Roasters strawberry matcha.</div>
+        </div>
+        <div class="inventory-slot">
+            <div class="inventory-item" style="background-image: url('3.png')"></div>
+            <div class="tooltip">Trying to get better at running at the moment...I hit 33k steps last Wednesday.</div>
+        </div>
+        <div class="inventory-slot">
+            <div class="inventory-item" style="background-image: url('4.png')"></div>
+            <div class="tooltip">My favourite artist is Lana Del Rey, LFL is her best album by far.</div>
+        </div>
+        <div class="inventory-slot">
+            <div class="inventory-item" style="background-image: url('5.png')"></div>
+            <div class="tooltip">I love hitting up the Ritz Randwick, the last movie I watched was Presence, a horror film about a family moving into a new home.</div>
+        </div>
+        <div class="inventory-slot">
+            <div class="inventory-item" style="background-image: url('6.png')"></div>
+            <div class="tooltip">I'm Indian, and my parents are originally from Punjab, after me the best thing out of there is probably mango lassi.</div>
+        </div>
+        <div class="inventory-slot">
+            <div class="inventory-item" style="background-image: url('7.png')"></div>
+            <div class="tooltip">My favourite game series is Pikmin.</div>
+        </div>
+        <div class="inventory-slot">
+            <div class="inventory-item" style="background-image: url('8.png')"></div>
+            <div class="tooltip">I love EEOAO, I also like bagels.</div>
+        </div>
+        <div class="inventory-slot">
+            <div class="inventory-item" style="background-image: url('9.png')"></div>
+            <div class="tooltip">I volunteer at eReuse at UNSW and like old timey tech, I found a tape recorder recently.</div>
+        </div>
+    </div>
+
+    <script>
+        const slots = document.querySelectorAll('.inventory-slot');
+        slots.forEach(slot => {
+            slot.addEventListener('click', () => {
+                slots.forEach(s => s.classList.remove('selected'));
+                slot.classList.add('selected');
+            });
+        });
+    </script>
+</body>
+</html>
